@@ -1,0 +1,106 @@
+﻿@page "/"
+@inherits IndexBase
+@using System.Text.RegularExpressions
+
+<h1>StepMedia</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title" style="color: cornflowerblue;">Input string value:</h5>
+        <span>
+            @inputText
+        </span>
+
+        <h5 class="card-title mt-2" style="color: orangered;">Ouput string value:</h5>
+        <span>@result</span>
+
+@*        @if (ShowError)
+        {
+            <h5 style="color:red">Please input string with lenght more than 12 only number and comma, comma must between two number. Number value lower than 2147483647</h5>
+        }
+        <EditForm Model="Model" OnValidSubmit="HandleRegistration">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="form-group">
+                <label for="input">Input String</label>
+                <InputText  Id="input" type="text" class="form-control" @bind-Value="@Model.Input"  />
+                <ValidationMessage For="@(() => Model.Input)" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </EditForm>*@
+    </div>
+</div>
+
+    <div class="main-wrapper">
+        @if (isBubble)
+        {
+            bubbleId = "setColor";
+            mergeId = "";
+            quickId = "";
+        }
+        @if (isMerge)
+        {
+            mergeId = "setColor";
+            bubbleId = "";
+            quickId = "";
+        }
+        @if (isQuick)
+        {
+            mergeId = "";
+            bubbleId = "";
+            quickId = "setColor";
+        }
+        @if (isSmall)
+        {
+            smallArrId = "setColor";
+            mediumArrId = "";
+            bigArrId = "";
+        }
+        @if (isMedium)
+        {
+            smallArrId = "";
+            mediumArrId = "setColor";
+            bigArrId = "";
+        }
+        @if (isBig)
+        {
+            smallArrId = "";
+            mediumArrId = "";
+            bigArrId = "setColor";
+        }
+        <div class="topnav">
+            <div class="settings-nav">
+                <div>
+                    <p class="tut-text">1. Set array size</p>
+                </div>
+                <div class="settings-nav-buttons mt-2">
+                    <button @onclick="@(e => CallUpdateArray())">Refresh Array</button>
+                    <button id="@smallArrId" @onclick="@(e => CallSmallArray())">Small</button>
+                    <button id="@mediumArrId" @onclick="@(e => CallMediumArray())">Medium</button>
+                    <button id="@bigArrId" @onclick="@(e => CallBigArray())">Big</button>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div class="settings-nav">
+                <div>
+                    <p class="tut-text">2. Press Go! to see visualization</p>
+                </div>
+                <div class="settings-nav-buttons mt-2">
+                    <button @onclick="@(e => StartSort())">Go!</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="array-container mt-5">
+
+            @for (int i = 0; i < GetArray.sortArr.Length; i++)
+            {
+                string heightValue = (GetArray.sortArr[i]/2).ToString() + "px";
+
+                <div class="array-item"
+                     style="height: @heightValue;
+                 background-color: @barColor"></div>
+            }
+
+        </div>
+    </div>

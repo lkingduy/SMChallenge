@@ -1,0 +1,109 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Oswald', serif;
+    background-color: #1A1A1D;
+}
+
+.main-wrapper {
+    left: 0;
+    position: absolute;
+    min-width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.topnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    height: 150px;
+}
+
+    .topnav button {
+        font-size: 18px;
+        font-family: inherit;
+        font-weight: 400;
+        border: 0;
+        background-color: transparent;
+        color: gray;
+        border-radius: 5px;
+    }
+
+        .topnav button:hover {
+            color: #C3073F;
+            transition: color .5s;
+        }
+
+    .topnav .line {
+        background-color: dimgray;
+        width: 2px;
+        height: 40px;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+.settings-nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.tut-text{
+    font-size: 12px;
+    font-family: inherit;
+    text-align: center;
+    margin-top: 30px;
+    color: dimgray;
+}
+
+.settings-nav-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#setColor {
+    color: #C3073F;
+}
+
+.array-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.array-item {
+    width: 4px;
+    display: inline;
+    margin: 10px 1px;
+    background-color: #C3073F;
+    transition: background-color 1s;
+}
+
+
+/*Blazor error CSS*/
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
